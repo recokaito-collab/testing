@@ -1,0 +1,944 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 20%, #2c5364 40%, #1e3c72 60%, #2a5298 80%, #7e57c2 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Christmas Snow Effect */
+        .snow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: #fff;
+            user-select: none;
+            animation: fall linear infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+        }
+
+        @keyframes fall {
+            from {
+                transform: translateY(-100vh) rotate(0deg);
+            }
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        .snowflake:nth-child(1) {
+            left: 1%;
+            animation-duration: 10s;
+            animation-delay: 0s;
+            font-size: 20px;
+            opacity: 0.9;
+        }
+
+        .snowflake:nth-child(2) {
+            left: 10%;
+            animation-duration: 12s;
+            animation-delay: 1s;
+            font-size: 16px;
+            opacity: 0.8;
+        }
+
+        .snowflake:nth-child(3) {
+            left: 20%;
+            animation-duration: 8s;
+            animation-delay: 2s;
+            font-size: 25px;
+            opacity: 0.7;
+        }
+
+        .snowflake:nth-child(4) {
+            left: 30%;
+            animation-duration: 15s;
+            animation-delay: 0s;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .snowflake:nth-child(5) {
+            left: 40%;
+            animation-duration: 11s;
+            animation-delay: 3s;
+            font-size: 22px;
+            opacity: 0.6;
+        }
+
+        .snowflake:nth-child(6) {
+            left: 50%;
+            animation-duration: 9s;
+            animation-delay: 1s;
+            font-size: 15px;
+            opacity: 0.8;
+        }
+
+        .snowflake:nth-child(7) {
+            left: 60%;
+            animation-duration: 13s;
+            animation-delay: 2s;
+            font-size: 20px;
+            opacity: 0.7;
+        }
+
+        .snowflake:nth-child(8) {
+            left: 70%;
+            animation-duration: 10s;
+            animation-delay: 0s;
+            font-size: 24px;
+            opacity: 0.9;
+        }
+
+        .snowflake:nth-child(9) {
+            left: 80%;
+            animation-duration: 14s;
+            animation-delay: 4s;
+            font-size: 17px;
+            opacity: 0.6;
+        }
+
+        .snowflake:nth-child(10) {
+            left: 90%;
+            animation-duration: 11s;
+            animation-delay: 1s;
+            font-size: 21px;
+            opacity: 0.8;
+        }
+
+        .snowflake:nth-child(11) {
+            left: 5%;
+            animation-duration: 16s;
+            animation-delay: 3s;
+            font-size: 19px;
+            opacity: 0.7;
+        }
+
+        .snowflake:nth-child(12) {
+            left: 15%;
+            animation-duration: 9s;
+            animation-delay: 2s;
+            font-size: 23px;
+            opacity: 0.9;
+        }
+
+        .snowflake:nth-child(13) {
+            left: 25%;
+            animation-duration: 12s;
+            animation-delay: 1s;
+            font-size: 16px;
+            opacity: 0.6;
+        }
+
+        .snowflake:nth-child(14) {
+            left: 35%;
+            animation-duration: 10s;
+            animation-delay: 4s;
+            font-size: 20px;
+            opacity: 0.8;
+        }
+
+        .snowflake:nth-child(15) {
+            left: 45%;
+            animation-duration: 13s;
+            animation-delay: 0s;
+            font-size: 18px;
+            opacity: 0.7;
+        }
+
+        /* Fireworks Effect */
+        .fireworks-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .firework {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            animation: fireworkLaunch 3s ease-out infinite;
+        }
+
+        @keyframes fireworkLaunch {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(30vh) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(30vh) scale(0);
+                opacity: 0;
+            }
+        }
+
+        .firework::before,
+        .firework::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            animation: explode 1s ease-out infinite;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(40);
+                opacity: 0;
+            }
+        }
+
+        .firework1 {
+            left: 10%;
+            animation-delay: 0s;
+            background: #ff6b6b;
+            box-shadow: 0 0 20px #ff6b6b;
+        }
+
+        .firework1::before {
+            background: radial-gradient(circle, #ff6b6b, transparent);
+            animation-delay: 1.5s;
+        }
+
+        .firework1::after {
+            background: radial-gradient(circle, #ffd93d, transparent);
+            animation-delay: 1.6s;
+        }
+
+        .firework2 {
+            left: 30%;
+            animation-delay: 2s;
+            background: #6bcf7f;
+            box-shadow: 0 0 20px #6bcf7f;
+        }
+
+        .firework2::before {
+            background: radial-gradient(circle, #6bcf7f, transparent);
+            animation-delay: 3.5s;
+        }
+
+        .firework2::after {
+            background: radial-gradient(circle, #4ecdc4, transparent);
+            animation-delay: 3.6s;
+        }
+
+        .firework3 {
+            left: 50%;
+            animation-delay: 4s;
+            background: #e056fd;
+            box-shadow: 0 0 20px #e056fd;
+        }
+
+        .firework3::before {
+            background: radial-gradient(circle, #e056fd, transparent);
+            animation-delay: 5.5s;
+        }
+
+        .firework3::after {
+            background: radial-gradient(circle, #f368e0, transparent);
+            animation-delay: 5.6s;
+        }
+
+        .firework4 {
+            left: 70%;
+            animation-delay: 1s;
+            background: #48dbfb;
+            box-shadow: 0 0 20px #48dbfb;
+        }
+
+        .firework4::before {
+            background: radial-gradient(circle, #48dbfb, transparent);
+            animation-delay: 2.5s;
+        }
+
+        .firework4::after {
+            background: radial-gradient(circle, #0abde3, transparent);
+            animation-delay: 2.6s;
+        }
+
+        .firework5 {
+            left: 85%;
+            animation-delay: 3s;
+            background: #ffd93d;
+            box-shadow: 0 0 20px #ffd93d;
+        }
+
+        .firework5::before {
+            background: radial-gradient(circle, #ffd93d, transparent);
+            animation-delay: 4.5s;
+        }
+
+        .firework5::after {
+            background: radial-gradient(circle, #f9ca24, transparent);
+            animation-delay: 4.6s;
+        }
+
+        /* Sparkle particles for fireworks */
+        .sparkle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #fff;
+            border-radius: 50%;
+            animation: sparkle 2s ease-out infinite;
+        }
+
+        @keyframes sparkle {
+            0% {
+                transform: translate(0, 0) scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--x), var(--y)) scale(1);
+                opacity: 0;
+            }
+        }
+
+        .sparkle1 {
+            left: 20%;
+            top: 30%;
+            animation-delay: 0s;
+            --x: 100px;
+            --y: -100px;
+        }
+
+        .sparkle2 {
+            left: 20%;
+            top: 30%;
+            animation-delay: 0.1s;
+            --x: -100px;
+            --y: -100px;
+        }
+
+        .sparkle3 {
+            left: 20%;
+            top: 30%;
+            animation-delay: 0.2s;
+            --x: 100px;
+            --y: 100px;
+        }
+
+        .sparkle4 {
+            left: 20%;
+            top: 30%;
+            animation-delay: 0.3s;
+            --x: -100px;
+            --y: 100px;
+        }
+
+        .sparkle5 {
+            left: 60%;
+            top: 40%;
+            animation-delay: 2s;
+            --x: 80px;
+            --y: -80px;
+        }
+
+        .sparkle6 {
+            left: 60%;
+            top: 40%;
+            animation-delay: 2.1s;
+            --x: -80px;
+            --y: -80px;
+        }
+
+        .sparkle7 {
+            left: 60%;
+            top: 40%;
+            animation-delay: 2.2s;
+            --x: 80px;
+            --y: 80px;
+        }
+
+        .sparkle8 {
+            left: 60%;
+            top: 40%;
+            animation-delay: 2.3s;
+            --x: -80px;
+            --y: 80px;
+        }
+
+        /* Original particles background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            to {
+                transform: translateY(-100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 3rem 1rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #fff, #ff6b6b, #4ecdc4, #ffe66d, #fff);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textGradient 4s ease infinite;
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+            margin-bottom: 1rem;
+        }
+
+        @keyframes textGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Carousel Section */
+        .carousel-section {
+            margin: 4rem 0;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-title {
+            text-align: center;
+            color: #fff;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #fff, transparent);
+            animation: lineGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes lineGlow {
+            0%, 100% { opacity: 0.5; transform: translateX(-50%) scaleX(0.5); }
+            50% { opacity: 1; transform: translateX(-50%) scaleX(1); }
+        }
+
+        /* Carousel 1: Infinite Ring Carousel */
+        .ring-carousel {
+            width: 100%;
+            height: 500px;
+            perspective: 1200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .ring-container {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotateRing 20s infinite linear;
+        }
+
+        @keyframes rotateRing {
+            from { transform: rotateY(0deg) rotateX(10deg); }
+            to { transform: rotateY(360deg) rotateX(10deg); }
+        }
+
+        .ring-item {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            left: 50px;
+            top: 50px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
+
+        .ring-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .ring-item:hover {
+            transform: scale(1.2) translateZ(50px);
+            box-shadow: 0 20px 60px rgba(255, 255, 255, 0.5);
+            z-index: 100;
+        }
+
+        .ring-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Position ring items in a circle */
+        .ring-item:nth-child(1) { transform: rotateY(0deg) translateZ(250px); }
+        .ring-item:nth-child(2) { transform: rotateY(45deg) translateZ(250px); }
+        .ring-item:nth-child(3) { transform: rotateY(90deg) translateZ(250px); }
+        .ring-item:nth-child(4) { transform: rotateY(135deg) translateZ(250px); }
+        .ring-item:nth-child(5) { transform: rotateY(180deg) translateZ(250px); }
+        .ring-item:nth-child(6) { transform: rotateY(225deg) translateZ(250px); }
+        .ring-item:nth-child(7) { transform: rotateY(270deg) translateZ(250px); }
+        .ring-item:nth-child(8) { transform: rotateY(315deg) translateZ(250px); }
+
+        /* Carousel 2: Helix Carousel */
+        .helix-carousel {
+            width: 100%;
+            height: 600px;
+            perspective: 1500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .helix-container {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotateHelix 15s infinite linear;
+        }
+
+        @keyframes rotateHelix {
+            from { transform: rotateY(0deg) rotateZ(5deg); }
+            to { transform: rotateY(360deg) rotateZ(5deg); }
+        }
+
+        .helix-item {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            left: 125px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+            transition: all 0.6s ease;
+            cursor: pointer;
+        }
+
+        .helix-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.8);
+            transition: all 0.6s ease;
+        }
+
+        .helix-item:hover {
+            transform: scale(1.3) translateZ(80px);
+            box-shadow: 0 25px 70px rgba(255, 255, 255, 0.6);
+            z-index: 100;
+        }
+
+        .helix-item:hover img {
+            filter: brightness(1.2) saturate(1.3);
+        }
+
+        /* Position helix items */
+        .helix-item:nth-child(1) { 
+            transform: rotateY(0deg) translateZ(200px) translateY(-100px); 
+        }
+        .helix-item:nth-child(2) { 
+            transform: rotateY(60deg) translateZ(200px) translateY(-50px); 
+        }
+        .helix-item:nth-child(3) { 
+            transform: rotateY(120deg) translateZ(200px) translateY(0px); 
+        }
+        .helix-item:nth-child(4) { 
+            transform: rotateY(180deg) translateZ(200px) translateY(50px); 
+        }
+        .helix-item:nth-child(5) { 
+            transform: rotateY(240deg) translateZ(200px) translateY(100px); 
+        }
+        .helix-item:nth-child(6) { 
+            transform: rotateY(300deg) translateZ(200px) translateY(150px); 
+        }
+
+        /* Carousel 3: Wave Carousel */
+        .wave-carousel {
+            width: 100%;
+            height: 400px;
+            perspective: 1000px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wave-container {
+            width: 800px;
+            height: 300px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: waveMotion 10s infinite ease-in-out;
+        }
+
+        @keyframes waveMotion {
+            0%, 100% { transform: rotateX(-10deg) translateY(0); }
+            25% { transform: rotateX(-10deg) translateY(-20px); }
+            50% { transform: rotateX(-10deg) translateY(0); }
+            75% { transform: rotateX(-10deg) translateY(20px); }
+        }
+
+        .wave-item {
+            position: absolute;
+            width: 180px;
+            height: 250px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff);
+            padding: 5px;
+        }
+
+        .wave-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: transform 0.5s ease;
+        }
+
+        .wave-item:hover {
+            transform: translateZ(100px) scale(1.1) rotateY(10deg);
+            box-shadow: 0 30px 60px rgba(255, 255, 255, 0.5);
+            z-index: 100;
+        }
+
+        .wave-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Wave positioning */
+        .wave-item:nth-child(1) { 
+            left: 0; 
+            transform: translateZ(0) rotateY(-15deg);
+            animation: wave1 8s infinite ease-in-out;
+        }
+        .wave-item:nth-child(2) { 
+            left: 150px; 
+            transform: translateZ(50px) rotateY(-10deg);
+            animation: wave2 8s infinite ease-in-out 0.5s;
+        }
+        .wave-item:nth-child(3) { 
+            left: 300px; 
+            transform: translateZ(100px) rotateY(0deg);
+            animation: wave3 8s infinite ease-in-out 1s;
+        }
+        .wave-item:nth-child(4) { 
+            left: 450px; 
+            transform: translateZ(50px) rotateY(10deg);
+            animation: wave4 8s infinite ease-in-out 1.5s;
+        }
+        .wave-item:nth-child(5) { 
+            left: 600px; 
+            transform: translateZ(0) rotateY(15deg);
+            animation: wave5 8s infinite ease-in-out 2s;
+        }
+
+        @keyframes wave1 {
+            0%, 100% { transform: translateZ(0) rotateY(-15deg) translateY(0); }
+            50% { transform: translateZ(0) rotateY(-15deg) translateY(-30px); }
+        }
+        @keyframes wave2 {
+            0%, 100% { transform: translateZ(50px) rotateY(-10deg) translateY(0); }
+            50% { transform: translateZ(50px) rotateY(-10deg) translateY(-40px); }
+        }
+        @keyframes wave3 {
+            0%, 100% { transform: translateZ(100px) rotateY(0deg) translateY(0); }
+            50% { transform: translateZ(100px) rotateY(0deg) translateY(-50px); }
+        }
+        @keyframes wave4 {
+            0%, 100% { transform: translateZ(50px) rotateY(10deg) translateY(0); }
+            50% { transform: translateZ(50px) rotateY(10deg) translateY(-40px); }
+        }
+        @keyframes wave5 {
+            0%, 100% { transform: translateZ(0) rotateY(15deg) translateY(0); }
+            50% { transform: translateZ(0) rotateY(15deg) translateY(-30px); }
+        }
+
+        /* Carousel 4: Double Ring Carousel */
+        .double-ring-carousel {
+            width: 100%;
+            height: 500px;
+            perspective: 1500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .double-ring-container {
+            width: 500px;
+            height: 500px;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .ring-outer {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            animation: rotateOuter 25s infinite linear;
+        }
+
+        .ring-inner {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            animation: rotateInner 15s infinite linear reverse;
+        }
+
+        @keyframes rotateOuter {
+            from { transform: rotateY(0deg) rotateX(20deg); }
+            to { transform: rotateY(360deg) rotateX(20deg); }
+        }
+
+        @keyframes rotateInner {
+            from { transform: rotateY(0deg) rotateX(-20deg); }
+            to { transform: rotateY(360deg) rotateX(-20deg); }
+        }
+
+        .double-ring-item {
+            position: absolute;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
+
+        .double-ring-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .double-ring-item:hover {
+            transform: scale(1.2) translateZ(50px);
+            box-shadow: 0 20px 60px rgba(255, 255, 255, 0.6);
+            z-index: 100;
+        }
+
+        .double-ring-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Outer ring items */
+        .ring-outer .double-ring-item {
+            width: 180px;
+            height: 180px;
+            left: 160px;
+            top: 160px;
+        }
+
+        .ring-outer .double-ring-item:nth-child(1) { transform: rotateY(0deg) translateZ(200px); }
+        .ring-outer .double-ring-item:nth-child(2) { transform: rotateY(60deg) translateZ(200px); }
+        .ring-outer .double-ring-item:nth-child(3) { transform: rotateY(120deg) translateZ(200px); }
+        .ring-outer .double-ring-item:nth-child(4) { transform: rotateY(180deg) translateZ(200px); }
+        .ring-outer .double-ring-item:nth-child(5) { transform: rotateY(240deg) translateZ(200px); }
+        .ring-outer .double-ring-item:nth-child(6) { transform: rotateY(300deg) translateZ(200px); }
+
+        /* Inner ring items */
+        .ring-inner .double-ring-item {
+            width: 120px;
+            height: 120px;
+            left: 190px;
+            top: 190px;
+        }
+
+        .ring-inner .double-ring-item:nth-child(1) { transform: rotateY(30deg) translateZ(120px); }
+        .ring-inner .double-ring-item:nth-child(2) { transform: rotateY(90deg) translateZ(120px); }
+        .ring-inner .double-ring-item:nth-child(3) { transform: rotateY(150deg) translateZ(120px); }
+        .ring-inner .double-ring-item:nth-child(4) { transform: rotateY(210deg) translateZ(120px); }
+        .ring-inner .double-ring-item:nth-child(5) { transform: rotateY(270deg) translateZ(120px); }
+        .ring-inner .double-ring-item:nth-child(6) { transform: rotateY(330deg) translateZ(120px); }
+
+        /* Glowing overlay effect */
+        .glow-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 30%, rgba(255, 255, 255, 0.1) 100%);
+            pointer-events: none;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .carousel-section {
+                padding: 1.5rem;
+            }
+
+            .wave-container {
+                width: 100%;
+                overflow-x: auto;
+                display: flex;
+                gap: 20px;
+            }
+
+            .wave-item {
+                position: relative;
+                left: auto !important;
+                flex-shrink: 0;
+            }
+
+            .ring-container,
+            .helix-container,
+            .double-ring-container {
+                transform: scale(0.6);
+            }
+        }
+
+        /* Loading animation */
+        .loading-text {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            animation: blink 2s infinite;
+            z-index: 100;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Christmas greeting */
+        .christmas-greeting {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+            animation: glow 2s ease-in-out infinite;
+            z-index: 100;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
+            50% { text-shadow: 0 0 30px rgba(255, 255, 255, 1), 0 0 40px rgba(255, 107, 107, 0.8); }
+        }
